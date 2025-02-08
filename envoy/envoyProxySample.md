@@ -2,8 +2,6 @@
 
 # Customize EnvoyProxy
 
-*Last Updated: [Insert Date]*
-
 ## Introduction
 
 Envoy Gateway provides an `EnvoyProxy` Custom Resource Definition (CRD) that allows cluster administrators to customize the managed Envoy Proxy deployment and service. This guide will walk you through the steps to tailor the Envoy Proxy to fit your specific requirements.
@@ -24,7 +22,7 @@ Before you begin, ensure you have:
 
 Create a custom `EnvoyProxy` resource to specify your desired configurations. Below is an example that sets the IP family to DualStack, allowing Envoy Proxy to serve external clients over both IPv4 and IPv6.
 
-```yaml
+```
 apiVersion: gateway.envoyproxy.io/v1alpha1
 kind: EnvoyProxy
 metadata:
@@ -48,7 +46,7 @@ kubectl apply -f custom-proxy-config.yaml
 
 Modify your `Gateway` resource to include an `infrastructure.parametersRef` that points to the newly created `EnvoyProxy` configuration.
 
-```yaml
+```
 apiVersion: gateway.networking.k8s.io/v1
 kind: Gateway
 metadata:
